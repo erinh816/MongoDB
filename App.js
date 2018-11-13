@@ -18,18 +18,5 @@ const App = createStackNavigator({
   Photo: { screen: Photo }
 });
 
-//============
-const App = createStackNavigator({
-  Home: { screen: HomeScreen },
-  CameraView: { screen: CameraView },
-  CameraScreen: { screen: CameraScreen },
-  GalleryScreen: { screen: GalleryScreen },
-  Photo: { screen: Photo }
-});
-//=============
-
-
-
-
 export default App;
 
