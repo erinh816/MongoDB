@@ -7,6 +7,10 @@ import {
 import { Camera, Permissions } from 'expo';
 
 export default class CameraView extends React.Component {
+    handleNavigation(navigate) {
+        setTimeout(() => navigate('CameraScreen'), 500);
+    }
+
     state = {
         hasCameraPermission: null,
         type: Camera.Constants.Type.back,
