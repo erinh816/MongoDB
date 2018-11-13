@@ -13,7 +13,7 @@ import {
 export default class HomeScreen extends React.Component {
 
     handleNavigation(navigate) {
-        setTimeout(() => navigate('CameraView'), 5000);
+        setTimeout(() => navigate('CameraScreen'), 2000);
     }
 
     componentDidMount() {
