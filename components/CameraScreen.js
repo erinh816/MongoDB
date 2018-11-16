@@ -124,6 +124,8 @@ export default class CameraScreen extends React.Component {
     handleMountError = ({ message }) => console.error(message);
 
     onPictureSaved = async photo => {
+        console.log('photo taken');
+        console.log(photo)
         await FileSystem.moveAsync({
             from: photo.uri,
             to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`,
