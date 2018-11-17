@@ -69,7 +69,7 @@ class KitaCamera extends React.Component {
             })
             .then(response => response.data)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 console.log("LABELS", data.responses[0].labelAnnotations);
                 return data.responses[0].labelAnnotations;
             })

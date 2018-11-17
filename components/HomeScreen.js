@@ -26,6 +26,9 @@ export default class HomeScreen extends React.Component {
                 style={styles.container}>
                 <Text style={styles.text}>ClarifEYE</Text>
                 <Image style={styles.image} source={require('../assets/eye.png')} />
+                <Button
+                    title="BARCODE"
+                />
                 {this.handleNavigation(navigate)}
             </ImageBackground>
         );
