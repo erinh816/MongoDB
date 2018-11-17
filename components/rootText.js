@@ -3,9 +3,12 @@ import { Text, View, ScrollView } from 'react-native';
 import { Button } from 'native-base';
 
 export const rootText = props => {
+
     let { navigate } = props.navigation;
-    let targetText = props.navigation.state.params.text || 'Text not recognized';
-    Expo.Speech.speak(targetText);
+    let targetArray = props.navigation.state.params.labels || 'Text not recognized';
+    let responseText = "";
+    targetArray.forEach(label => responseText += label.description);
+    Expo.Speech.speak(responseText);
 
     return (
         <View style={{ flex: 1, marginTop: 20 }}>
@@ -22,7 +25,7 @@ export const rootText = props => {
                 <View
                     style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <View stlye={{ flex: 1 }}>
-                        <Text style={{ fontSize: 20 }}>{targetText}</Text>
+                        <Text style={{ fontSize: 20 }}>{responseText}</Text>
                     </View>
                 </View>
             </ScrollView>
