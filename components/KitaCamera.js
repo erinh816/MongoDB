@@ -1,6 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Button, Text } from 'native-base';
+import { View, TouchableHighlight, TouchableOpacity, Button, Text } from 'react-native';
 import { Camera, Permissions, ImageManipulator } from 'expo';
 import Loader from './Loader';
 import config from '../config';
@@ -99,11 +98,23 @@ class KitaCamera extends React.Component {
                         ref={ref => {
                             this.camera = ref;
                         }}>
-                        <View style={{ margin: 20, padding: 20 }}>
-                            <Button bordered onPress={this.snap} light>
-                                <Text>Capture</Text>
-                            </Button>
-                        </View>
+
+                        <TouchableOpacity
+                            style={{
+                            flex: 1,
+                            alignSelf: 'center',
+                            alignItems: 'center',
+                            }}
+                            onPress={this.snap}>
+                            <View
+                            style={{ flex: 1, fontSize: 18000, marginBottom: 10, color: 'white' }}>
+                            {/* {' '}Flip{' '} */}
+                            </View>
+                        </TouchableOpacity>
+              
+                        {/* <View  style={{flex: 1}}>
+                            <Button style={{flex: 1}} onPress={this.snap} title="Capture" />
+                        </View> */}
                     </Camera>
                 </View>
             );
