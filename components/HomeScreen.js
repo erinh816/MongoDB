@@ -17,8 +17,17 @@ export default class HomeScreen extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout
+        console.log('here')
     }
+
+    componentWillMount() {
+        console.log('mounted')
+    }
+
+    componentWillUnmount() {
+        console.log('unmounted')
+    }
+
     render() {
         const { navigate } = this.props.navigation;
         return (
