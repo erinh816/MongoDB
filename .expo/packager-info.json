@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 27851,
-  "expoServerNgrokUrl": "https://rp-z65.anonymous.nytimes.exp.direct",
-  "packagerNgrokUrl": "https://packager.rp-z65.anonymous.nytimes.exp.direct",
-  "ngrokPid": 27869
+  "packagerPid": 1549,
+  "expoServerNgrokUrl": "https://d3-ffr.anonymous.nytimes.exp.direct",
+  "packagerNgrokUrl": "https://packager.d3-ffr.anonymous.nytimes.exp.direct",
+  "ngrokPid": 1563
 }
