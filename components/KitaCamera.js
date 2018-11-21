@@ -1,13 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Button, Text } from 'native-base';
+import { View, TouchableHighlight, TouchableOpacity, Button, Text } from 'react-native';
 import { Camera, Permissions, ImageManipulator } from 'expo';
 import Loader from './Loader';
 import config from '../config';
 import axios from 'axios';
 class KitaCamera extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.snap = this.snap.bind(this);
         this.state = {
             hasCameraPermission: null,
@@ -25,34 +24,34 @@ class KitaCamera extends React.Component {
         const { navigate } = this.props.navigation;
         if (this.camera) {
             let photo;
-            let textRecieved;
-            // let translatedText;
+            let textReceived;
+            let translatedText;
             try {
                 let { uri } = await this.camera.takePictureAsync();
-                photo = await ImageManipulator.manipulate(
+                photo = await ImageManipulator.manipulateAsync(
                     uri,
                     [{ resize: { width: 420 } }],
                     {
                         base64: true
                     }
                 );
-                textRecieved = await this.getText(photo.base64);
-                // translatedText = await this.getTranslatedText(textRecieved);
-                if (textRecieved === 'undefined') {
-                    textRecieved = 'Text not recognized';
-                }
+                textReceived = await this.getText(photo.base64);
+                //translatedText = await this.getTranslatedText(textRecieved);
+                // if (translatedText === 'undefined') {
+                //     translatedText = 'Text not recognized';
+                // }
                 this.setState({ loading: false });
             } catch (err) {
                 this.setState({ loading: false });
                 console.log(err);
             }
-            navigate('rootText', { text: textRecieved });
+            navigate('rootText', { labels: textReceived });
         }
     };
 
     getText = image => {
         return axios
-            .post(config.googleCloudVision.api + config.apiKey, {
+            .post(config.googleCloud.api + config.googleCloud.apiKey, {
                 requests: [
                     {
                         image: {
@@ -60,7 +59,7 @@ class KitaCamera extends React.Component {
                         },
                         features: [
                             {
-                                type: 'TEXT_DETECTION',
+                                type: 'LABEL_DETECTION',
                                 maxResults: 1
                             }
                         ]
@@ -68,27 +67,14 @@ class KitaCamera extends React.Component {
                 ]
             })
             .then(response => response.data)
-            .then(text => text.responses[0].fullTextAnnotation.text)
+            .then(data => {
+                // console.log(data);
+                console.log("LABELS", data.responses[0].labelAnnotations);
+                return data.responses[0].labelAnnotations;
+            })
             .catch(err => console.log(err));
     };
 
-    // getTranslatedText = async parsedText => {
-    //     let lang = await Expo.DangerZone.Localization.getCurrentLocaleAsync();
-    //     let toLang = lang.slice(0, 2);
-    //     let text = parsedText;
-    //     const API_KEY = config.apiKey;
-    //     let url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
-    //     url += '&q=' + encodeURI(text);
-    //     url += `&target=${toLang}`;
-
-    //     return axios
-    //         .post(url)
-    //         .then(res => res.data)
-    //         .then(response => response.data.translations[0].translatedText)
-    //         .catch(error => {
-    //             console.log('There was an error with the translation request: ', error);
-    //         });
-    // };
 
     render() {
         const { hasCameraPermission } = this.state;
@@ -112,11 +98,23 @@ class KitaCamera extends React.Component {
                         ref={ref => {
                             this.camera = ref;
                         }}>
-                        <View style={{ margin: 20, padding: 20 }}>
-                            <Button bordered onPress={this.snap} light>
-                                <Text>Capture</Text>
-                            </Button>
-                        </View>
+
+                        <TouchableOpacity
+                            style={{
+                                flex: 1,
+                                alignSelf: 'center',
+                                alignItems: 'center',
+                            }}
+                            onPress={this.snap}>
+                            <View
+                                style={{ flex: 1, fontSize: 18000, marginBottom: 10, color: 'white' }}>
+                                {/* {' '}Flip{' '} */}
+                            </View>
+                        </TouchableOpacity>
+
+                        {/* <View  style={{flex: 1}}>
+                            <Button style={{flex: 1}} onPress={this.snap} title="Capture" />
+                        </View> */}
                     </Camera>
                 </View>
             );
