@@ -10,18 +10,23 @@ import CameraScreen from './components/CameraScreen';
 import GalleryScreen from './components/GalleryScreen';
 import KitaCamera from './components/KitaCamera';
 import rootText from './components/rootText';
+//import BarcodeScanner from './components/BarCodeScanner';
+import BarCodeScannerExample from './components/BarCodeScannerExample';
 
 import Photo from './components/Photo';
 
 const App = createStackNavigator({
   Home: { screen: HomeScreen },
   KitaCamera: { screen: KitaCamera },
-  rootText: { screen: rootText }
-  // CameraView: { screen: CameraView }
+  rootText: { screen: rootText },
+  // CameraView: { screen: CameraView },
   // CameraScreen: { screen: CameraScreen },
   // GalleryScreen: { screen: GalleryScreen },
   // Photo: { screen: Photo },
   // GoogleText: { screen: GoogleText }
+  //BarcodeScanner:{screen:BarcodeScanner}
+  BarCodeScannerExample:{screen:BarCodeScannerExample}
+
 });
 
 export default App;

@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
 
-export default class BarcodeScannerExample extends React.Component {
+export default class BarCodeScannerExample extends React.Component {
     state = {
         hasCameraPermission: null,
     }
 
     async componentDidMount() {
-        console.log('barcod console log')
+        console.log('barcode console log')
         const { status } = await Permissions.askAsync(Permissions.CAMERA);
         this.setState({ hasCameraPermission: status === 'granted' });
     }
@@ -34,5 +34,11 @@ export default class BarcodeScannerExample extends React.Component {
 
     handleBarCodeScanned = ({ type, data }) => {
         alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    //call api with data variable
+    //receive Response
+    //speak response
+    //navigate back to home page
+    
+    
     }
 }
