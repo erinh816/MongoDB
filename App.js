@@ -8,10 +8,15 @@ import CameraScreen from './components/CameraScreen';
 import GalleryScreen from './components/GalleryScreen';
 import KitaCamera from './components/KitaCamera';
 import rootText from './components/rootText';
+<<<<<<< HEAD
 import LoginScreen from './components/LoginScreen';
 //chat
 import Main from './components/Chat/Main';
 import Chat from './components/Chat/Chat';
+=======
+//import BarcodeScanner from './components/BarCodeScanner';
+import BarCodeScannerExample from './components/BarCodeScannerExample';
+>>>>>>> master
 
 import Photo from './components/Photo';
 import BarCodeScanner from './components/BarCode3'
@@ -22,16 +27,26 @@ const App = createStackNavigator({
   Home: { screen: HomeScreen },
   KitaCamera: { screen: KitaCamera },
   rootText: { screen: rootText },
+<<<<<<< HEAD
   Login: { screen: LoginScreen },
   // CameraView: { screen: CameraView }
+=======
+  // CameraView: { screen: CameraView },
+>>>>>>> master
   // CameraScreen: { screen: CameraScreen },
   // GalleryScreen: { screen: GalleryScreen },
   // Photo: { screen: Photo },
   // GoogleText: { screen: GoogleText }
+<<<<<<< HEAD
   Main: { screen: Main },
   Chat: { screen: Chat },
   BarCodeScanner: { screen: BarCodeScanner },
   Log: { screen: Log }
+=======
+  //BarcodeScanner:{screen:BarcodeScanner}
+  BarCodeScannerExample:{screen:BarCodeScannerExample}
+
+>>>>>>> master
 });
 
 export default App;

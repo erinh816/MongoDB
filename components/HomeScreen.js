@@ -13,7 +13,11 @@ import {
 export default class HomeScreen extends React.Component {
 
     handleNavigation(navigate) {
+<<<<<<< HEAD
         setTimeout(() => navigate('Login'), 2000);
+=======
+        setTimeout(() => navigate('BarCodeScannerExample'), 2000);
+>>>>>>> master
     }
 
     // init = () =>

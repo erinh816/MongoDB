@@ -14,8 +14,11 @@
     "axios": "^0.18.0",
     "expo": "^31.0.2",
     "expo-barcode-scanner": "^1.1.0",
+<<<<<<< HEAD
     "firebase": "^5.5.8",
     "lodash.mapvalues": "^4.6.0",
+=======
+>>>>>>> master
     "native-base": "^2.8.1",
     "prop-types": "^15.6.2",
     "react": "16.5.0",
