@@ -101,17 +101,17 @@ class KitaCamera extends React.Component {
 
                         <TouchableOpacity
                             style={{
-                            flex: 1,
-                            alignSelf: 'center',
-                            alignItems: 'center',
+                                flex: 1,
+                                alignSelf: 'center',
+                                alignItems: 'center',
                             }}
                             onPress={this.snap}>
                             <View
-                            style={{ flex: 1, fontSize: 18000, marginBottom: 10, color: 'white' }}>
-                            {/* {' '}Flip{' '} */}
+                                style={{ flex: 1, fontSize: 18000, marginBottom: 10, color: 'white' }}>
+                                {/* {' '}Flip{' '} */}
                             </View>
                         </TouchableOpacity>
-              
+
                         {/* <View  style={{flex: 1}}>
                             <Button style={{flex: 1}} onPress={this.snap} title="Capture" />
                         </View> */}
