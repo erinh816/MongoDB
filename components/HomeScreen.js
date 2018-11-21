@@ -13,7 +13,7 @@ import {
 export default class HomeScreen extends React.Component {
 
     handleNavigation(navigate) {
-        setTimeout(() => navigate('KitaCamera'), 2000);
+        setTimeout(() => navigate('BarCodeScannerExample'), 2000);
     }
 
     componentDidMount() {
