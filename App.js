@@ -14,6 +14,9 @@ import Main from './components/Chat/Main';
 import Chat from './components/Chat/Chat';
 
 import Photo from './components/Photo';
+import BarCodeScanner from './components/BarCode3'
+import Log from './components/Chat/Log';
+
 
 const App = createStackNavigator({
   Home: { screen: HomeScreen },
@@ -25,8 +28,10 @@ const App = createStackNavigator({
   // GalleryScreen: { screen: GalleryScreen },
   // Photo: { screen: Photo },
   // GoogleText: { screen: GoogleText }
-  // Main: { screen: Main },
-  // Chat: { screen: Chat }
+  Main: { screen: Main },
+  Chat: { screen: Chat },
+  BarCodeScanner: { screen: BarCodeScanner },
+  Log: { screen: Log }
 });
 
 export default App;

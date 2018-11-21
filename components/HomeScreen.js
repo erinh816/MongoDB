@@ -13,20 +13,30 @@ import {
 export default class HomeScreen extends React.Component {
 
     handleNavigation(navigate) {
-        setTimeout(() => navigate('KitaCamera'), 2000);
+        setTimeout(() => navigate('Login'), 2000);
     }
+
+    // init = () =>
+    //     firebase.initializeApp({
+    //         apiKey: "AIzaSyAXUUe46oJXHuTHtxHjoZXeEV4gANDXPTI",
+    //         authDomain: "cyclops-eda39.firebaseapp.com",
+    //         databaseURL: "https://cyclops-eda39.firebaseio.com",
+    //         projectId: "cyclops-eda39",
+    //         storageBucket: "cyclops-eda39.appspot.com",
+    //         messagingSenderId: "652737661358"
+    //     });
 
     componentDidMount() {
-        console.log('here')
+        console.log("hi")
     }
 
-    componentWillMount() {
-        console.log('mounted')
-    }
+    // componentWillMount() {
+    //     console.log('mounted')
+    // }
 
-    componentWillUnmount() {
-        console.log('unmounted')
-    }
+    // componentWillUnmount() {
+    //     console.log('unmounted')
+    // }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -35,9 +45,9 @@ export default class HomeScreen extends React.Component {
                 style={styles.container}>
                 <Text style={styles.text}>ClarifEYE</Text>
                 <Image style={styles.image} source={require('../assets/eye.png')} />
-                <Button
+                {/* <Button on
                     title="BARCODE"
-                />
+                /> */}
                 {this.handleNavigation(navigate)}
             </ImageBackground>
         );

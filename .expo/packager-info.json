@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://d3-ffr.anonymous.nytimes.exp.direct",
+  "packagerNgrokUrl": "https://packager.d3-ffr.anonymous.nytimes.exp.direct",
+  "ngrokPid": 4105
 }

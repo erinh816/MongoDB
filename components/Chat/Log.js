@@ -4,18 +4,15 @@ import * as firebase from 'firebase';
 import { createStackNavigator } from 'react-navigation';
 import { FormLabel, FormInput } from 'react-native-elements';
 import { auth } from 'firebase';
-import Main from './Chat/Main.js';
+import Main from './Main.js';
 
-firebase.initializeApp({
-    apiKey: "AIzaSyAXUUe46oJXHuTHtxHjoZXeEV4gANDXPTI",
-    authDomain: "cyclops-eda39.firebaseapp.com",
-    databaseURL: "https://cyclops-eda39.firebaseio.com",
-    projectId: "cyclops-eda39",
-    storageBucket: "cyclops-eda39.appspot.com",
-    messagingSenderId: "652737661358"
-});
+
 
 export default class login extends React.Component {
+    handleNavigation(navigate) {
+        setTimeout(() => navigate('Main'), 2000);
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,20 +28,12 @@ export default class login extends React.Component {
         this.setState({ error: '', loading: true });
 
         const { email, password } = this.state;
-
-        // console.log("email: " + email)
-        // console.log("pass: " + password)
-
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((res) => {
-                console.log("Log in works");
-                console.log(JSON.stringify(res));
-                this.setState({ error: '', loading: false });
+            .then(() => {
+                this.state({ error: '', loading: false });
                 this.props.navigation.navigate('Main')
             })
-            .catch((err) => {
-                console.log("Log in failed");
-                console.log(JSON.stringify(err));
+            .catch(() => {
                 this.setState({ error: 'Authentication failed', loading: false });
             })
     }
@@ -60,9 +49,9 @@ export default class login extends React.Component {
                 this.setState({ error: '', loading: false });
                 this.props.navigation.navigate('Main')
             })
-            .catch((err) => {
-                console.log("SIGN UP failed");
-                console.log(JSON.stringify(err));
+            .catch(() => {
+                console.log("SIGN UP works");
+
                 this.setState({ error: 'Authentication failed', loading: false });
             })
     }
