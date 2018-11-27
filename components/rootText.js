@@ -3,10 +3,9 @@ import { Text, View, ScrollView } from 'react-native';
 import { Button } from 'native-base';
 
 export const rootText = props => {
-    let { navigate } = props.navigation;
     let targetArray = props.navigation.state.params.labels || 'Text not recognized';
     let responseText = "";
-    targetArray.forEach(label => responseText += label.description);
+    // targetArray.forEach(label => responseText += label.description);
     Expo.Speech.speak(responseText);
 
     return (

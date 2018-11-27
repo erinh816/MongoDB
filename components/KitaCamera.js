@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, TouchableHighlight, TouchableOpacity, Button, Text } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Button, Text } from 'react-native';
 import { Camera, Permissions, ImageManipulator } from 'expo';
+// import rootText from './rootText';
 import Loader from './Loader';
 import config from '../config';
 import axios from 'axios';
@@ -10,7 +11,8 @@ class KitaCamera extends React.Component {
         this.snap = this.snap.bind(this);
         this.state = {
             hasCameraPermission: null,
-            loading: false
+            loading: false,
+            textReceived: []
         };
     }
 
@@ -21,7 +23,8 @@ class KitaCamera extends React.Component {
 
     snap = async () => {
         this.setState({ loading: true });
-        const { navigate } = this.props.navigation;
+        const { nav } = this.props;
+        // const { navigate } = this.props.navigation;
         if (this.camera) {
             let photo;
             let textReceived;
@@ -40,12 +43,12 @@ class KitaCamera extends React.Component {
                 // if (translatedText === 'undefined') {
                 //     translatedText = 'Text not recognized';
                 // }
-                this.setState({ loading: false });
+                this.setState({ loading: false, textReceived: textReceived });
             } catch (err) {
                 this.setState({ loading: false });
                 console.log(err);
             }
-            navigate('rootText', { labels: textReceived });
+            // nav.navigate(rootText, { leaveFrom: 'right' });
         }
     };
 
@@ -82,7 +85,7 @@ class KitaCamera extends React.Component {
             return <View />;
         } else if (hasCameraPermission === false) {
             return <Text>No access to camera</Text>;
-        } else {
+        } else if (this.state.textReceived.length === 0){
             return (
                 <View style={{ flex: 1 }}>
                     <Loader loading={this.state.loading} />
@@ -118,6 +121,31 @@ class KitaCamera extends React.Component {
                     </Camera>
                 </View>
             );
+        } else if (this.state.textReceived.length >= 1) {
+            let targetArray = this.state.textReceived;
+            let responseText = "";
+            targetArray.forEach(label => responseText += label.description);
+            Expo.Speech.speak(responseText);
+            return (
+                <View style={{ flex: 1, marginTop: 20 }}>
+                    <Button
+                        title="Back to Camera"
+                        onPress={() => {
+                            Expo.Speech.stop();
+                            // nav.navigate('rootCameraContainer');
+                        }}>
+                        {/* <Text style={{ color: 'white' }}> Back to Camera </Text> */}
+                    </Button>
+                    <ScrollView style={{ flex: 1, margin: 20 }}>
+                        <View
+                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View stlye={{ flex: 1 }}>
+                                <Text style={{ fontSize: 20 }}>{responseText}</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </View>
+            )
         }
     }
 }

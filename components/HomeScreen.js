@@ -12,13 +12,10 @@ import {
 
 export default class HomeScreen extends React.Component {
 
-    handleNavigation(navigate) {
-<<<<<<< HEAD
-        setTimeout(() => navigate('Login'), 2000);
-=======
-        setTimeout(() => navigate('BarCodeScannerExample'), 2000);
->>>>>>> master
-    }
+    // handleNavigation(navigate) {
+    //     setTimeout(() => navigate('BarCodeScannerExample'), 2000);
+
+    // }
 
     // init = () =>
     //     firebase.initializeApp({
@@ -43,7 +40,7 @@ export default class HomeScreen extends React.Component {
     // }
 
     render() {
-        const { navigate } = this.props.navigation;
+        // const { navigate } = this.props.navigation;
         return (
             <ImageBackground
                 style={styles.container}>
@@ -52,7 +49,7 @@ export default class HomeScreen extends React.Component {
                 {/* <Button on
                     title="BARCODE"
                 /> */}
-                {this.handleNavigation(navigate)}
+                {/* {this.handleNavigation(navigate)} */}
             </ImageBackground>
         );
     }
