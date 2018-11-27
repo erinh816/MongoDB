@@ -10,12 +10,13 @@ import {
 class Main extends React.Component {
     static navigationOptions = {
         title: 'Chatter',
+        
     };
 
     state = {
         name: '',
     };
-
+    
     onPress = () =>
         this.props.navigation.navigate('Chat', { name: this.state.name });
 

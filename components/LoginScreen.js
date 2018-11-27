@@ -58,7 +58,7 @@ export default class login extends React.Component {
             .then(() => {
                 console.log("SIGN UP works");
                 this.setState({ error: '', loading: false });
-                this.props.navigation.navigate('Main')
+                this.props.nav.navigate('Main')
             })
             .catch((err) => {
                 console.log("SIGN UP failed");
