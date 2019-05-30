@@ -6,14 +6,7 @@ import { FormLabel, FormInput } from 'react-native-elements';
 import { auth } from 'firebase';
 import Main from './Chat/Main.js';
 
-firebase.initializeApp({
-    apiKey: "AIzaSyAXUUe46oJXHuTHtxHjoZXeEV4gANDXPTI",
-    authDomain: "cyclops-eda39.firebaseapp.com",
-    databaseURL: "https://cyclops-eda39.firebaseio.com",
-    projectId: "cyclops-eda39",
-    storageBucket: "cyclops-eda39.appspot.com",
-    messagingSenderId: "652737661358"
-});
+
 
 export default class login extends React.Component {
     constructor(props) {
