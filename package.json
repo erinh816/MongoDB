@@ -33,7 +33,7 @@
     "react-native-swipe-navigation": "^1.0.0-beta",
     "react-native-swiper": "^1.5.14",
     "react-navigation": "^2.18.3",
-    "ws": "^7.0.0"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.1.1"
